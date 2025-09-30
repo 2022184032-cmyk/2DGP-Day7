@@ -50,7 +50,7 @@ class Ball:
          self.y = 599
          self.speed = random.randint(1, 10)
 
-         if random.choice([True, False]):
+         if random.randint(0,1):
                 self.image = load_image('ball21x21.png')
          else:
              self.image = load_image('ball41x41.png')
