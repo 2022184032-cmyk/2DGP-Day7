@@ -34,6 +34,12 @@ class Zombie:
         self.frame = 0
         self.image = load_image('zombie_run_animation.png')
 
+class ball21x21:
+    pass
+
+class ball41x41:
+    pass
+
     def update(self):
         self.frame = (self.frame + 1) % 10
         self.x += 5
