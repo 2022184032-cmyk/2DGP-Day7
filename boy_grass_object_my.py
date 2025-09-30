@@ -34,12 +34,6 @@ class Zombie:
         self.frame = 0
         self.image = load_image('zombie_run_animation.png')
 
-class ball21x21:
-    pass
-
-class ball41x41:
-    pass
-
     def update(self):
         self.frame = (self.frame + 1) % 10
         self.x += 5
@@ -48,6 +42,15 @@ class ball41x41:
         frame_width = self.image.w // 10
         frame_height = self.image.h
         self.image.clip_draw(self.frame * frame_width, 0, frame_width, frame_height, self.x, self.y, frame_width //2, frame_height //2)
+
+class ball21x21:
+
+    pass
+
+class ball41x41:
+    pass
+
+
 
 def handle_events():
     global running
@@ -71,11 +74,18 @@ def reset_world():
 
     grass = Grass()
     world.append(grass)
+
     team = [Boy() for _ in range(11)]    # Grass 도장을 이용해서 grass 객체 생성
     world += team
 
     zombie = Zombie()
     world.append(zombie)
+
+    small_ball = [ball21x21() for _ in range(10)]
+    world += small_ball
+
+    big_ball = [ball41x41() for _ in range(10)]
+    world += big_ball
 
 def update_world():
     for game_object in world:
