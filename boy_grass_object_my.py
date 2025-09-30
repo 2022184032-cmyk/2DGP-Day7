@@ -60,8 +60,21 @@ class ball21x21:
         pass
 
 
-#class ball41x41:
-    pass
+class ball41x41:
+    def __init__(self):
+        self.x = random.randint(0, 700)
+        self.y = 599
+        self.speed = random.randint(1,10)
+        self.image = load_image('ball41x41.png')
+
+    def update(self):
+        self.y -= self.speed
+        if self.y < 55:
+            self.y = 55
+
+    def draw(self):
+        self.image.draw(self.x, self.y)
+        pass
 
 
 
@@ -97,8 +110,8 @@ def reset_world():
     small_ball = [ball21x21() for _ in range(10)]
     world += small_ball
 
-    #big_ball = [ball41x41() for _ in range(10)]
-    #world += big_ball
+    big_ball = [ball41x41() for _ in range(10)]
+    world += big_ball
 
 def update_world():
     for game_object in world:
