@@ -44,10 +44,22 @@ class Zombie:
         self.image.clip_draw(self.frame * frame_width, 0, frame_width, frame_height, self.x, self.y, frame_width //2, frame_height //2)
 
 class ball21x21:
+    def __init__(self):
+        self.x = random.randint(0, 700)
+        self.y = 599
+        self.image = load_image('ball21x21.png')
 
-    pass
+    def update(self):
+        self.y -= 5
+        if self.y < 55:
+            self.y = 55
 
-class ball41x41:
+    def draw(self):
+        self.image.draw(self.x, self.y)
+        pass
+
+
+#class ball41x41:
     pass
 
 
@@ -84,8 +96,8 @@ def reset_world():
     small_ball = [ball21x21() for _ in range(10)]
     world += small_ball
 
-    big_ball = [ball41x41() for _ in range(10)]
-    world += big_ball
+    #big_ball = [ball41x41() for _ in range(10)]
+    #world += big_ball
 
 def update_world():
     for game_object in world:
